@@ -11,9 +11,14 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Login' });
 });
 
-/* GET login page. */
+/* GET register page. */
 router.get('/register', function(req, res, next) {
   res.render('register', { title: 'Register' });
+});
+
+/* GET search page. */
+router.get('/search', function(req, res, next) {
+  res.render('search', { title: 'Search' });
 });
 
 module.exports = router;

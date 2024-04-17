@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Results</title>
+  <link rel='stylesheet' href='/stylesheets/common.css' />
+  <link rel='stylesheet' href='/stylesheets/search.css' />
+  <link rel='stylesheet' href='/stylesheets/register.css' />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <img src="/images/filter.png" class="header_icon" data-toggle="modal" data-target="#sidebar-modal" style="padding-left: 5%; cursor: pointer;">
+    <a href="/">
+      <img src="/images/logo_temp.png" class="header_icon">
+    </a>
+    <input type="text" class="search_bar" placeholder="Search">
+    <img src="/images/profile.jpg" class="header_icon">
+    <img src="/images/cart.jpg" class="header_icon" style="padding-right: 5%;">
+  </header>
+
+  <!-- <div class="container"> -->
+    <div class="main-content">
+
+      <!-- Filter Column -->
+      <div class="filter-column">
+        <!-- Gender Section -->
+        <div class="filter-section">
+          <div class="all-filters-title">Filters</div>
+          <h5 class="filter-title">Gender</h5>
+          <div class="filter-option">
+            <input type="checkbox" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="children" name="gender" value="children">
+            <label for="children">Children</label>
+          </div>
+        </div>
+        <!-- Frame Type Section -->
+        <div class="filter-section">
+          <h5 class="filter-title">Frame Type</h5>
+          <div class="filter-option">
+            <input type="checkbox" id="rectangle" name="frameType" value="rectangle">
+            <label for="rectangle">Rectangle</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="oval" name="frameType" value="oval">
+            <label for="oval">Oval</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="round" name="frameType" value="round">
+            <label for="round">Round</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="square" name="frameType" value="square">
+            <label for="square">Square</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="browline" name="frameType" value="browline">
+            <label for="browline">Browline</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="cat-eye" name="frameType" value="cat-eye">
+            <label for="cat-eye">Cat-eye</label>
+          </div>
+        </div>        
+        <!-- Price Section -->
+        <div class="filter-section">
+          <h5 class="filter-title">Price</h5>
+          <div class="filter-option">
+            <input type="checkbox" id="under50" name="price" value="under50">
+            <label for="under50">Under $50</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="between51and150" name="price" value="between51and150">
+            <label for="between51and150">$51 - $150</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="over150" name="price" value="over150">
+            <label for="over150">Over $150</label>
+          </div>
+          <div class="price-inputs">
+            <input type="number" class="form-control" placeholder="Min" id="minPrice" name="minPrice">
+            <input type="number" class="form-control" placeholder="Max" id="maxPrice" name="maxPrice">
+          </div>
+        </div>
+        <!-- Material / Color Section -->
+        <div class="filter-section">
+          <h5 class="filter-title">Material / Color</h5>
+          <div class="filter-option">
+            <input type="checkbox" id="metal" name="materialColor" value="metal">
+            <label for="metal">Metal</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="wood" name="materialColor" value="wood">
+            <label for="wood">Wood</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="plastic" name="materialColor" value="plastic">
+            <label for="plastic">Plastic</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="black" name="materialColor" value="black">
+            <label for="black">Black</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="red" name="materialColor" value="red">
+            <label for="red">Red</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="blue" name="materialColor" value="blue">
+            <label for="blue">Blue</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="white" name="materialColor" value="white">
+            <label for="white">White</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="other" name="materialColor" value="other">
+            <label for="other">Other</label>
+          </div>
+        </div>
+        <!-- Type Section -->
+        <div class="filter-section">
+          <h5 class="filter-title">Type</h5>
+          <div class="filter-option">
+            <input type="checkbox" id="reading" name="type" value="reading">
+            <label for="reading">Reading</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="progressive" name="type" value="progressive">
+            <label for="progressive">Progressive</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="bifocal" name="type" value="bifocal">
+            <label for="bifocal">Bifocal</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="trifocal" name="type" value="trifocal">
+            <label for="trifocal">Trifocal</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="non-prescription" name="type" value="non-prescription">
+            <label for="non-prescription">Non-Prescription</label>
+          </div>
+        </div>
+        <!-- Size Section -->
+        <div class="filter-section">
+          <h5 class="filter-title">Size</h5>
+          <div class="filter-option">
+            <input type="checkbox" id="size-xs" name="size" value="XS">
+            <label for="size-xs">XS</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="size-s" name="size" value="S">
+            <label for="size-s">S</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="size-m" name="size" value="M">
+            <label for="size-m">M</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="size-l" name="size" value="L">
+            <label for="size-l">L</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="size-xl" name="size" value="XL">
+            <label for="size-xl">XL</label>
+          </div>
+        </div>
+                
+        <!-- Button to update search -->
+        <button class="btn btn-primary update-search-btn">Update Search</button>
+      </div>
+
+      <!-- Results column (right side) -->
+      <div class="results-column">
+        <div class="results-title">Search Results</div>
+            <!-- Individual Result Item -->
+        <div class="result-item">
+          <a href="/search"> <img src="/images/glasses1.jpg" alt="Item Description" class="result-image"> </a>
+          <p class="result-name">Glasses 1</p>
+          <p class="result-price">$30</p>
+        </div>
+        <div class="result-item">
+          <a href="/search"> <img src="/images/glasses2.jpg" alt="Item Description" class="result-image"> </a>
+          <p class="result-name">Glasses 2</p>
+          <p class="result-price">$120</p>
+        </div>
+        <div class="result-item">
+          <a href="/search"> <img src="/images/glasses3.jpg" alt="Item Description" class="result-image"> </a>
+          <p class="result-name">Glasses 3</p>
+          <p class="result-price">$190</p>
+        </div>
+        <div class="result-item">
+          <a href="/search"> <img src="/images/glasses4.jpg" alt="Item Description" class="result-image"> </a>
+          <p class="result-name">Glasses 4</p>
+          <p class="result-price">$190</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="/returns" class="footer-link">Returns</a>
+          <a href="/faq" class="footer-link">FAQ</a>
+        </div>
+        <div class="col-md-6">
+          <a href="/shipping" class="footer-link">Shipping</a>
+          <a href="/contact" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+      <div class="row justify-content-center social-media-row">
+        <div class="col-auto">
+          <a href="https://facebook.com" class="footer-icon"><img src="/images/facebook-icon.png" alt="Facebook"></a>
+        </div>
+        <div class="col-auto">
+          <a href="https://twitter.com" class="footer-icon"><img src="/images/twitter-icon.png" alt="Twitter"></a>
+        </div>
+        <div class="col-auto">
+          <a href="https://instagram.com" class="footer-icon"><img src="/images/instagram-icon.png" alt="Instagram"></a>
+        </div>
+        <div class="col-auto">
+          <a href="https://tiktok.com" class="footer-icon"><img src="/images/tiktok-icon.png" alt="TikTok"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+</body>
+</html>

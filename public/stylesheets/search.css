@@ -1,0 +1,124 @@
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+/* Styles for filter column */
+.filter-column {
+    flex: 1;
+    max-width: 30%;
+    background: linear-gradient(to bottom, #b2d8d8 0%, #888888 100%);
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow-y: auto;
+}
+.filter-section {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to top, #b2d8d8 0%, #4d8692 100%);
+}
+.all-filters-title {
+    display: flex;
+    font-size: 48px;
+    font-family: sans-serif;
+    padding-bottom: 20px;
+    justify-content: center;
+    border-bottom: 2px solid #dee2e6;
+}
+.filter-title {
+    display: flex;
+    font-size: 36px;
+    font-family: sans-serif;
+    padding-bottom: 15px;
+    justify-content: center;
+}
+.filter-option {
+    font-size: 24px;
+    font-family: sans-serif;
+}
+.filter-option input {
+    margin-right: 0.5rem;
+}
+.filter-option input[type="checkbox"] {
+    transform: scale(2.0);
+    margin-right: 0.5rem;
+    cursor: pointer;
+    margin-left: 15px;
+}
+.update-search-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 36px;
+    font-family: sans-serif;
+    background-color: #4d9292;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+.custom-range, .form-control {
+    padding: 0.25rem;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+}
+.price-inputs {
+    display: flex;
+    justify-content: space-between;
+}
+.price-inputs input {
+    flex: 1;
+    margin: 0.25rem;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+}
+
+/* Styles for results column */
+.results-column {
+    flex: 3;
+    max-width: 70%;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #fffbea;
+}
+.results-title {
+    display: flex;
+    font-size: 64px;
+    font-family: sans-serif;
+    justify-content: center;
+}
+.result-item {
+    width: 30%;
+    float: left;
+    padding: 1%;
+    box-sizing: border-box;
+    margin-bottom: 2%;
+    height: 400px;
+}
+.result-image {
+    width: 100%;
+    display: block;
+    margin-bottom: 0.5rem;
+    max-height: 270px;
+}
+.result-name {
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    font-family: sans-serif;
+    height: 50px;
+}
+.result-price {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 32px;
+    font-family: sans-serif;
+    height: 70px;
+}
