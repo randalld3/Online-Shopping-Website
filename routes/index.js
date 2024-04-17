@@ -21,4 +21,9 @@ router.get('/search', function(req, res, next) {
   res.render('search', { title: 'Search' });
 });
 
+/* GET product page. */
+router.get('/product', function(req, res, next) {
+  res.render('product', { title: 'Product' });
+});
+
 module.exports = router;

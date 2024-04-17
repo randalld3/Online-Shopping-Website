@@ -1,0 +1,99 @@
+.main-content {
+    display: flex;
+    background-color: #fffbea;
+    padding: 20px 0;
+    justify-content: space-between;
+}
+.image-column, .product-header {
+    background-color: #ffffff;
+    width: calc(50% - 5%);
+    flex-grow: 1;
+}
+.image-column {
+    margin-left: 5%;
+    border: 2px solid #333333;
+    border-radius: 5px;
+}
+.product-header {
+    margin-right: 5%;
+    padding-left: 30px;
+}
+.product-name {
+    font-size: 64px;
+    font-weight: bold;
+    padding-bottom: 30px;
+    font-family: sans-serif;
+}
+.star {
+    color: antiquewhite;
+    font-size: 28px;
+}
+.star.filled {
+    color: gold;
+}
+.product-price {
+    font-size: 20px;
+    color: #333;
+    font-family: sans-serif;
+}
+.quantity-add {
+    display: flex;
+    align-items: center;
+}
+.quantity-label {
+    font-size: 24px;
+    margin-right: 8px;
+    font-family: sans-serif;
+}
+.quantity-input {
+    width: 60px;
+    padding: 5px;
+    margin-right: 8px;
+}
+.add-to-cart-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+.add-to-cart-btn:hover {
+    background-color: #45a049;
+}
+
+/* Styles for product overview, details, and reviews */
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 40px 5%;
+}
+.tab-button {
+    height: 80px;
+    width: 33%;
+    cursor: pointer;
+    background-color: #b2d8d8;
+    font-size: 32px;
+    font-family: sans-serif;
+}
+#overview-btn {
+    margin-left: 5%;
+}
+#reviews-btn {
+    margin-right: 5%;
+}
+.content-section {
+    width: 90%;
+    margin: 20px 5%;
+    font-size: 24px;
+    font-family: sans-serif;
+}
+.active {
+    background-color: gray;
+}
