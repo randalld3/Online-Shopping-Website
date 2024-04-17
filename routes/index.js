@@ -26,4 +26,9 @@ router.get('/product', function(req, res, next) {
   res.render('product', { title: 'Product' });
 });
 
+/* GET cart page. */
+router.get('/cart', function(req, res, next) {
+  res.render('cart', { title: 'Cart' });
+});
+
 module.exports = router;

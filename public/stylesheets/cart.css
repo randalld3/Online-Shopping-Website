@@ -1,0 +1,121 @@
+.cart-header {
+    font-size: 62px;
+    font-family: sans-serif;
+    padding: 20px 20px 20px 20%;
+    background-color: #fffbea;
+    border-bottom: 5px solid #333333;
+}
+.product-section {
+    width: 100%;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid #333333;
+}
+.product-image-container {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-image {
+    border: 1px solid #333333;
+    width: 300px;
+    height: auto;
+}
+.product-details {
+    width: 60%;
+}
+.product-name {
+    font-size: 32px;
+    font-family: sans-serif;
+    display: block;
+}
+.product-price {
+    display: block;
+    font-size: 28px;
+    font-family: sans-serif;
+}
+.quantity-update {
+    display: flex;
+    align-items: center;
+}
+.quantity-label {
+    font-size: 24px;
+    margin-right: 8px;
+    font-family: sans-serif;
+}
+.quantity-input {
+    width: 60px;
+    padding: 5px;
+    margin-right: 8px;
+}
+.update-cart-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+.update-cart-btn:hover {
+    background-color: #45a049;
+}
+.product-subtotal {
+    display: flex;
+    justify-content: end;
+    font-size: 32px;
+    font-family: sans-serif;
+}
+.summary-header {
+    font-size: 48px;
+    font-family: sans-serif;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #fffbea;
+}
+.cart-summary {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #fffbea;
+}
+.cart-totals {
+    font-size: 42px;
+    font-family: sans-serif;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.proceed-to-checkout-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.proceed-to-checkout-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 42px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: sans-serif;
+    margin-left: auto;
+    width: 60%;
+}
+.proceed-to-checkout-btn:hover {
+    background-color: #45a049;
+}
