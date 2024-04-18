@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Glasses Shopping Portal Home</title>
+  <link rel='stylesheet' href='/stylesheets/common.css'/>
+  <link rel='stylesheet' href='/stylesheets/profile.css'/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <img src="/images/filter.png" class="header_icon" data-toggle="modal" data-target="#sidebar-modal">
+    <a href="/">
+      <img src="/images/logo_temp.png" class="header_icon logo">
+    </a>
+    <form class="search-form" action="/search" method="GET">
+      <input type="text" class="search_bar" name="q" placeholder="Search" required>
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+    <a href="/profile">
+      <img src="/images/profile.jpg" class="header_icon">
+    </a>
+    <a href="/cart">
+      <img src="/images/cart.jpg" class="header_icon">
+    </a>
+  </header>
+
+  <!-- Main Content Section -->
+  <div class="main-content">
+    <a href="/edit-profile" class="profile-button" id="edit-profile">
+      <button>Edit Profile</button>
+    </a>
+    <a href="/orders" class="profile-button" id="orders">
+      <button>Orders</button>
+    </a>
+    <a href="/cart" class="profile-button" id="cart">
+      <button>Cart</button>
+    </a>
+  </div>
+
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="/returns" class="footer-link">Returns</a>
+          <a href="/faq" class="footer-link">FAQ</a>
+        </div>
+        <div class="col-md-6">
+          <a href="/shipping" class="footer-link">Shipping</a>
+          <a href="/contact" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+      <div class="row justify-content-center social-media-row">
+        <div class="col-auto">
+          <a href="https://facebook.com" class="footer-icon"><img src="/images/facebook-icon.png" alt="Facebook"></a>
+        </div>
+        <div class="col-auto">
+          <a href="https://twitter.com" class="footer-icon"><img src="/images/twitter-icon.png" alt="Twitter"></a>
+        </div>
+        <div class="col-auto">
+          <a href="https://instagram.com" class="footer-icon"><img src="/images/instagram-icon.png" alt="Instagram"></a>
+        </div>
+        <div class="col-auto">
+          <a href="https://tiktok.com" class="footer-icon"><img src="/images/tiktok-icon.png" alt="TikTok"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sidebar Modal -->
+  <div class="modal left fade" id="sidebar-modal" tabindex="-1" role="dialog" aria-labelledby="sidebar-label">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <a href="/profile" class="modal-link">Profile</a>
+          <a href="/login" class="modal-link">Log In</a>
+          <div class="modal-box" onclick="location.href='/search';">Frames</div>
+          <div class="modal-box" onclick="location.href='/search';">Lenses</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

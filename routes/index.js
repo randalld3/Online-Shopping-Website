@@ -41,4 +41,19 @@ router.get('/confirmation', function(req, res, next) {
   res.render('confirmation', { title: 'Confirmation' });
 });
 
+/* GET profile-shopper page. */
+router.get('/profile-shopper', function(req, res, next) {
+  res.render('profile-shopper', { title: 'Profile-Shopper' });
+});
+
+/* GET profile-seller page. */
+router.get('/profile-seller', function(req, res, next) {
+  res.render('profile-seller', { title: 'Profile-Seller' });
+});
+
+/* GET edit-profile page. */
+router.get('/edit-profile', function(req, res, next) {
+  res.render('edit-profile', { title: 'Edit-Profile' });
+});
+
 module.exports = router;

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Glasses Shopping Portal Home</title>
+  <link rel='stylesheet' href='/stylesheets/common.css'/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <img src="/images/filter.png" class="header_icon" data-toggle="modal" data-target="#sidebar-modal">
+    <a href="/">
+      <img src="/images/logo_temp.png" class="header_icon logo">
+    </a>
+    <form class="search-form" action="/search" method="GET">
+      <input type="text" class="search_bar" name="q" placeholder="Search" required>
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+    <a href="/profile">
+      <img src="/images/profile.jpg" class="header_icon">
+    </a>
+    <a href="/cart">
+      <img src="/images/cart.jpg" class="header_icon">
+    </a>
+  </header>
+
+  <!-- Main Content Section -->
+  <div class="container bootstrap snippets bootdey">
+    <h1 class="text-primary">Edit Profile</h1>
+    <hr>
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <img src="/images/avatar.png" class="avatar img-circle img-thumbnail" style="width: 200px; height: 200px;" alt="avatar">
+          <h6>Upload a different photo...</h6>
+          
+          <input type="file" class="form-control">
+        </div>
+      </div>
+      
+      <!-- Edit form column -->
+      <div class="col-md-9 personal-info">
+        <h3>Personal info</h3>
+        <form class="form-horizontal" role="form">
+          <!-- First Name Field -->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">First name:</label>
+            <div class="col-lg-8">
+              <input id="firstName" class="form-control" type="text" value="dey-dey">
+            </div>
+          </div>
+          <!-- Last Name Field -->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Last name:</label>
+            <div class="col-lg-8">
+              <input id="lastName" class="form-control" type="text" value="bootdey">
+            </div>
+          </div>
+          <!-- Company Field -->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Company:</label>
+            <div class="col-lg-8">
+              <input id="company" class="form-control" type="text" value="The Blind Squirrel">
+            </div>
+          </div>
+          <!-- Email Field -->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+              <input id="email" class="form-control" type="text" value="janesemail@gmail.com">
+            </div>
+          </div>
+          <!-- Password Field -->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Password:</label>
+            <div class="col-lg-8">
+              <input id="password" class="form-control" type="password">
+            </div>
+          </div>
+          <!-- Repeat Password Field -->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Repeat Password:</label>
+            <div class="col-lg-8">
+              <input id="repeatPassword" class="form-control" type="password">
+            </div>
+          </div>
+          <!-- Error Message -->
+          <div class="form-group">
+            <div class="col-md-8 col-md-offset-3">
+              <p id="error-message" class="text-danger" style="display: none;"></p>
+            </div>
+          </div>
+          <!-- Save and Cancel Buttons -->
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <input id="saveChanges" type="button" class="btn btn-primary" value="Save Changes">
+              <span></span>
+              <input id="cancelButton" type="reset" class="btn btn-default" value="Cancel">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="/returns" class="footer-link">Returns</a>
+          <a href="/faq" class="footer-link">FAQ</a>
+        </div>
+        <div class="col-md-6">
+          <a href="/shipping" class="footer-link">Shipping</a>
+          <a href="/contact" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+      <div class="row justify-content-center social-media-row">
+        <div class="col-auto">
+          <a href="https://facebook.com" class="footer-icon"><img src="/images/facebook-icon.png" alt="Facebook"></a>
+        </div>
+        <div class="col-auto">
+          <a href="https://twitter.com" class="footer-icon"><img src="/images/twitter-icon.png" alt="Twitter"></a>
+        </div>
+        <div class="col-auto">
+          <a href="https://instagram.com" class="footer-icon"><img src="/images/instagram-icon.png" alt="Instagram"></a>
+        </div>
+        <div class="col-auto">
+          <a href="https://tiktok.com" class="footer-icon"><img src="/images/tiktok-icon.png" alt="TikTok"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sidebar Modal -->
+  <div class="modal left fade" id="sidebar-modal" tabindex="-1" role="dialog" aria-labelledby="sidebar-label">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <a href="/profile" class="modal-link">Profile</a>
+          <a href="/login" class="modal-link">Log In</a>
+          <div class="modal-box" onclick="location.href='/search';">Frames</div>
+          <div class="modal-box" onclick="location.href='/search';">Lenses</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Save Changes and Cancel Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var saveChangesButton = document.getElementById('saveChanges');
+        var cancelButton = document.getElementById('cancelButton');
+        var firstNameInput = document.getElementById('firstName');
+        var lastNameInput = document.getElementById('lastName');
+        var companyInput = document.getElementById('company');
+        var emailInput = document.getElementById('email');
+        var passwordInput = document.getElementById('password');
+        var repeatPasswordInput = document.getElementById('repeatPassword');
+        var errorMessage = document.getElementById('error-message');
+    
+        console.log('DOM fully loaded and parsed');
+    
+        saveChangesButton.addEventListener('click', function(event) {
+          console.log('Save changes clicked');
+          // Prevent form from submitting
+          event.preventDefault();
+    
+          var errors = [];
+          if (!firstNameInput.value) errors.push("First name is required.");
+          if (!lastNameInput.value) errors.push("Last name is required.");
+          if (!companyInput.value) errors.push("Company is required.");
+          if (!emailInput.value) errors.push("Email is required.");
+          if (!passwordInput.value) errors.push("Password is required.");
+          if (passwordInput.value !== repeatPasswordInput.value) errors.push("Passwords do not match.");
+    
+          if (errors.length > 0) {
+            errorMessage.innerHTML = errors.join("<br>");
+            errorMessage.style.display = 'block';
+          } else {
+            errorMessage.style.display = 'none';
+            console.log('Form is valid. Redirecting...');
+            window.location.href = '/profile';
+          }
+        });
+    
+        cancelButton.addEventListener('click', function() {
+          console.log('Cancel button clicked');
+          window.location.reload();
+        });
+      });
+    </script>
+
+</body>
+</html>
