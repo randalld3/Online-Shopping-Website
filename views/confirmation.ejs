@@ -3,7 +3,7 @@
 <head>
   <title>Glasses Shopping Portal Home</title>
   <link rel='stylesheet' href='/stylesheets/common.css' />
-  <link rel='stylesheet' href='/stylesheets/cart.css' />
+  <link rel='stylesheet' href='/stylesheets/confirmation.css' />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -29,65 +29,32 @@
     </a>
   </header>
 
-  <!-- Main Content -->
-  <div class="cart-header">
-    Your Cart:
-  </div>
-  <div class="product-section">
-    <div class="product-image-container">
-        <img src="/images/glasses1.jpg" class="product-image">
-    </div>
-    <div class="product-details">
-      <div class="product-name">
-        Glasses 1
-      </div>
-      <div class="product-price">
-        Price: $199.00
-      </div>
-      <div class="quantity-update">
-        <label for="qty" class="quantity-label">Qty:</label>
-        <input type="number" id="qty" name="qty" class="quantity-input" min="1" value="1">
-        <button type="button" class="update-cart-btn" data-toggle="button">Update</button>
-      </div>
-      <div class="product-subtotal">
-        Subtotal: $199.00
-      </div>
-    </div>
-  </div>
-  <div class="product-section">
-    <div class="product-image-container">
-        <img src="/images/glasses2.jpg" class="product-image">
-    </div>
-    <div class="product-details">
-      <div class="product-name">
-        Glasses 2
-      </div>
-      <div class="product-price">
-        Price: $99.00
-      </div>
-      <div class="quantity-update">
-        <label for="qty" class="quantity-label">Qty:</label>
-        <input type="number" id="qty" name="qty" class="quantity-input" min="1" value="1">
-        <button type="button" class="update-cart-btn" data-toggle="button">Update</button>
-      </div>
-      <div class="product-subtotal">
-        Subtotal: $99.00
-      </div>
-    </div>
+  <!-- Main Section-->
+  <div class="confirmation-header">
+    <h1>Thank You!</h1>
+    <p>Your order has been placed.</p>
   </div>
   <div class="summary-header">
-      Cart Summary
+    Order Summary
   </div>
-  <div class="cart-summary">
-    <div class="cart-totals">
-      <div>Subtotal: $298.00</div>
-      <div>Number of Items: 2</div>
-    </div>
-    <div class="proceed-to-checkout-btn-container">
-      <button type="button" class="proceed-to-checkout-btn">Proceed to Checkout -></button>
+  <div class="order-summary">
+    <div class="order-items">
+      <div class="order-item">
+        <img src="/images/glasses1.jpg" alt="Glasses1" class="product-image" />
+        <div class="product-details">
+          <h2 class="product-name">Product Name</h2>
+          <p class="estimated-delivery">Estimated Delivery: Date</p>
+        </div>
+      </div>
+      <div class="order-item">
+        <img src="/images/glasses2.jpg" alt="Glasses2" class="product-image" />
+        <div class="product-details">
+          <h2 class="product-name">Product Name</h2>
+          <p class="estimated-delivery">Estimated Delivery: Date</p>
+        </div>
+      </div>
     </div>
   </div>
-  
 
   <!-- Footer Section -->
   <footer class="footer">

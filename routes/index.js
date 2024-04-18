@@ -36,4 +36,9 @@ router.get('/checkout', function(req, res, next) {
   res.render('checkout', { title: 'Checkout' });
 });
 
+/* GET confirmation page. */
+router.get('/confirmation', function(req, res, next) {
+  res.render('confirmation', { title: 'Confirmation' });
+});
+
 module.exports = router;
