@@ -38,9 +38,9 @@ section.vh-100 {
   }
 .form-check-input {
     margin-top: 0;
-    margin-right: 0.5rem; /* Adjust the spacing between the checkbox and the label */
+    margin-right: 0.5rem;
 }
 .form-check-label {
     display: block;
-    margin-left: 0.5rem; /* Adjust the spacing if needed */
+    margin-left: 0.5rem;
 }
