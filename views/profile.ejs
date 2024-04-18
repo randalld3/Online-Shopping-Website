@@ -36,11 +36,10 @@
     <a href="/orders" class="profile-button" id="orders">
       <button>Orders</button>
     </a>
-    <a href="/cart" class="profile-button" id="cart">
+    <a href="/cart" class="profile-button" id="third-button">
       <button>Cart</button>
     </a>
   </div>
-
 
   <!-- Footer Section -->
   <footer class="footer">
@@ -88,6 +87,25 @@
       </div>
     </div>
   </div>
+
+  <!-- Script to load page based on user type -->
+  <script>
+  // Please update the userType variable once the backend connection is established
+  var userType = 'seller';
+
+  var thirdButton = document.getElementById('third-button');
+  var thirdButtonText = thirdButton.getElementsByTagName('button')[0];
+
+  thirdButton.classList.add('third-button');
+
+  if (userType === 'seller') {
+    thirdButton.href = '/products';
+    thirdButtonText.textContent = 'Products';
+  } else {
+    thirdButton.href = '/cart';
+    thirdButtonText.textContent = 'Cart';
+  }
+  </script>
 
 </body>
 </html>

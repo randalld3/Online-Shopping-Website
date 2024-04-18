@@ -31,7 +31,7 @@
 #orders button {
     background-color: #2196F3;
 }
-#cart button {
+.third-button button {
     background-color: #FFEB3B;
 }
 .profile-button button:hover {
