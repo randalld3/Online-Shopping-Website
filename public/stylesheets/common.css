@@ -377,11 +377,3 @@ body {
     font-size: 60px !important;
 }
 
-/* This is the css for the login page */
-.bg-image-vertical {
-    position: relative;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: auto 100%;
-}

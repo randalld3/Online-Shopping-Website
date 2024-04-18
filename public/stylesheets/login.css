@@ -1,0 +1,46 @@
+/* The first group of classes is for the login page */
+section.vh-100 {
+    padding-top: 100px;
+    margin-top: 0;
+}
+.bg-image-vertical {
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+}
+
+/* This group of classes is for the forgot password page */
+.form-gap {
+    padding-top: 100px;
+}
+.recovery-question {
+    font-size: 18px;
+    color: #333;
+    padding: 10px 0;
+}
+.col-md-8 {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+.panel {
+    margin: 0 auto;
+    float: none;
+    width: 100%;
+}
+
+/* This group of classes is for the registration page */
+.form-check {
+    display: flex;
+    align-items: center;
+  }
+.form-check-input {
+    margin-top: 0;
+    margin-right: 0.5rem; /* Adjust the spacing between the checkbox and the label */
+}
+.form-check-label {
+    display: block;
+    margin-left: 0.5rem; /* Adjust the spacing if needed */
+}

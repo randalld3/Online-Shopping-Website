@@ -11,6 +11,11 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Login' });
 });
 
+/* GET forgot-password page. */
+router.get('/forgot-password', function(req, res, next) {
+  res.render('forgot-password', { title: 'Forgot-Password' });
+});
+
 /* GET register page. */
 router.get('/register', function(req, res, next) {
   res.render('register', { title: 'Register' });

@@ -3,7 +3,6 @@
 <head>
   <title>Glasses Shopping Portal Home</title>
   <link rel='stylesheet' href='/stylesheets/common.css' />
-  <link rel='stylesheet' href='/stylesheets/register.css' />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -29,8 +28,8 @@
     </a>
   </header>
 
-  <!-- Login Section-->
-  <section class="vh-100" style="background-color: #eee;">
+  <!-- Registration Section-->
+  <section class="vh-140" style="background-color: #eee;">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-12 col-xl-11">
@@ -39,43 +38,83 @@
               <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-                  <form class="mx-1 mx-md-4">
+                    <form class="mx-1 mx-md-4" onsubmit="return validateRegistration()">
+                      <!-- First Name Field -->
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                          <input type="text" id="firstName" class="form-control" required/>
+                          <label class="form-label" for="firstName">First Name</label>
+                        </div>
+                      </div>
+                      <!-- Last Name Field -->
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                          <input type="text" id="lastName" class="form-control" required/>
+                          <label class="form-label" for="lastName">Last Name</label>
+                        </div>
+                      </div>
+                    <!-- Company Field -->
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <input type="text" id="form3Example1c" class="form-control" />
-                        <label class="form-label" for="form3Example1c">Your Name</label>
+                        <input type="text" id="company" class="form-control" />
+                        <label class="form-label" for="company">Company</label>
                       </div>
                     </div>
+                    <!-- Email Field -->
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <input type="email" id="form3Example3c" class="form-control" />
-                        <label class="form-label" for="form3Example3c">Your Email</label>
+                        <input type="email" id="email" class="form-control" />
+                        <label class="form-label" for="email">Your Email</label>
                       </div>
                     </div>
+                    <!-- Password Field -->
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4c" class="form-control" />
-                        <label class="form-label" for="form3Example4c">Password</label>
+                        <input type="password" id="password" class="form-control" />
+                        <label class="form-label" for="password">Password</label>
                       </div>
                     </div>
+                    <!-- Repeat Password Field -->
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4cd" class="form-control" />
-                        <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                        <input type="password" id="repeatPassword" class="form-control" />
+                        <label class="form-label" for="repeatPassword">Repeat your password</label>
                       </div>
                     </div>
-                    <div class="form-check d-flex justify-content-center mb-5">
-                      <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                      <label class="form-check-label" for="form2Example3">
-                        I agree all statements in <a href="#!" data-toggle="modal" data-target="#terms-modal">Terms of service</a>
+                      <!-- Security Question Drop-down -->
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-question-circle fa-lg me-3 fa-fw"></i>
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                        <select id="securityQuestion" class="form-control">
+                          <option value="" disabled selected>Select your security question</option>
+                          <option value="woodchuck">How much wood could a woodchuck chuck if a woodchuck could chuck wood?</option>
+                        </select>
+                        <label class="form-label" for="securityQuestion">Security Question</label>
+                      </div>
+                    </div>
+                    <!-- Security Question Answer Input -->
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-pencil-alt fa-lg me-3 fa-fw"></i>
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                        <input type="text" id="securityAnswer" class="form-control" />
+                        <label class="form-label" for="securityAnswer">Answer</label>
+                      </div>
+                    </div>
+                    <!-- Terms of Service -->
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="termsCheckbox">
+                      <label class="form-check-label" for="termsCheckbox">
+                        I agree to all statements in <a href="#!" data-toggle="modal" data-target="#terms-modal">Terms of service</a>
                       </label>
                     </div>
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Register</button>
+                      <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Register</button>
                     </div>
                   </form>
                 </div>
@@ -175,22 +214,61 @@
     </div>
   </div>
 
-    <!-- Sidebar Modal -->
-    <div class="modal left fade" id="sidebar-modal" tabindex="-1" role="dialog" aria-labelledby="sidebar-label">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-          </div>
-          <div class="modal-body">
-            <a href="/profile" class="modal-link">Profile</a>
-            <a href="/login" class="modal-link">Log In</a>
-            <div class="modal-box" onclick="location.href='/search';">Frames</div>
-            <div class="modal-box" onclick="location.href='/search';">Lenses</div>
-          </div>
+  <!-- Sidebar Modal -->
+  <div class="modal left fade" id="sidebar-modal" tabindex="-1" role="dialog" aria-labelledby="sidebar-label">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <a href="/profile" class="modal-link">Profile</a>
+          <a href="/login" class="modal-link">Log In</a>
+          <div class="modal-box" onclick="location.href='/search';">Frames</div>
+          <div class="modal-box" onclick="location.href='/search';">Lenses</div>
         </div>
       </div>
     </div>
-  
+  </div>
+
+  <!-- Script for form validation -->
+  <script>
+    function validateRegistration() {
+      var firstName = document.getElementById('firstName').value;
+      var lastName = document.getElementById('lastName').value;
+      var company = document.getElementById('company').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      var repeatPassword = document.getElementById('repeatPassword').value;
+      var securityQuestion = document.getElementById('securityQuestion').value;
+      var securityAnswer = document.getElementById('securityAnswer').value;
+      var termsCheckbox = document.getElementById('termsCheckbox').checked;
+    
+      if (!firstName || !lastName || !company || !email || !password || !repeatPassword || !securityQuestion || !securityAnswer) {
+        alert('Please fill out all fields.');
+        return false;
+      }
+    
+      if (password !== repeatPassword) {
+        alert('Passwords do not match.');
+        return false;
+      }
+    
+      if (!termsCheckbox) {
+        alert('Please accept the terms and conditions.');
+        return false;
+      }
+    
+      return true;
+    }
+    
+    document.querySelector('.mx-1.mx-md-4').addEventListener('submit', function(event) {
+      event.preventDefault();
+      if(validateRegistration()) {
+        // event.target.submit();
+      }
+    });
+  </script>
+      
 </body>
 </html>
