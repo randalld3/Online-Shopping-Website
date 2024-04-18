@@ -31,4 +31,9 @@ router.get('/cart', function(req, res, next) {
   res.render('cart', { title: 'Cart' });
 });
 
+/* GET checkout page. */
+router.get('/checkout', function(req, res, next) {
+  res.render('checkout', { title: 'Checkout' });
+});
+
 module.exports = router;
