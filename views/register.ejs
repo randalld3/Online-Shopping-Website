@@ -87,6 +87,20 @@
                         <label class="form-label" for="repeatPassword">Repeat your password</label>
                       </div>
                     </div>
+                    <!-- User Type Field -->
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-users fa-lg me-3 fa-fw"></i>
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="userType" id="buyer" value="buyer" required>
+                          <label class="form-check-label" for="buyer">Buyer</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="userType" id="seller" value="seller" required>
+                          <label class="form-check-label" for="seller">Seller</label>
+                        </div>
+                      </div>
+                    </div>
                       <!-- Security Question Drop-down -->
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-question-circle fa-lg me-3 fa-fw"></i>
@@ -231,7 +245,6 @@
     </div>
   </div>
 
-  <!-- Script for form validation -->
   <script>
     function validateRegistration() {
       var firstName = document.getElementById('firstName').value;
@@ -240,28 +253,29 @@
       var email = document.getElementById('email').value;
       var password = document.getElementById('password').value;
       var repeatPassword = document.getElementById('repeatPassword').value;
+      var userType = document.querySelector('input[name="userType"]:checked');
       var securityQuestion = document.getElementById('securityQuestion').value;
       var securityAnswer = document.getElementById('securityAnswer').value;
       var termsCheckbox = document.getElementById('termsCheckbox').checked;
-    
-      if (!firstName || !lastName || !company || !email || !password || !repeatPassword || !securityQuestion || !securityAnswer) {
+  
+      if (!firstName || !lastName || !company || !email || !password || !repeatPassword || !userType || !securityQuestion || !securityAnswer) {
         alert('Please fill out all fields.');
         return false;
       }
-    
+  
       if (password !== repeatPassword) {
         alert('Passwords do not match.');
         return false;
       }
-    
+  
       if (!termsCheckbox) {
         alert('Please accept the terms and conditions.');
         return false;
       }
-    
+  
       return true;
     }
-    
+  
     document.querySelector('.mx-1.mx-md-4').addEventListener('submit', function(event) {
       event.preventDefault();
       if(validateRegistration()) {
@@ -269,6 +283,7 @@
       }
     });
   </script>
+  
       
 </body>
 </html>
