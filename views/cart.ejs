@@ -51,11 +51,11 @@
           Price: $<%= pricePerUnit %>
         </div>
         <div class="quantity-update">
-          <form method="post" action="/update">
+          <form method="post" action="/cart/update">
             <label for="qty" class="quantity-label">Qty:</label>
             <input type="hidden" name="name" value="<%= productName %>">
             <input type="number" id="<%= productName %>-qty" name="qty" class="quantity-input" min="0" value="<%= quantity %>">
-            <button type="submit" class="update-cart-btn" data-toggle="button">Update</button>
+            <button type="submit" class="update-cart-btn">Update</button>
           </form>
         </div>
         <div class="product-subtotal">
