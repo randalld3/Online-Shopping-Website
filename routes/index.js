@@ -110,7 +110,7 @@ router.get('/profile', function(req, res, next) {
   if (!req.session.user){
     res.redirect("/login")
   }
-    res.render('profile', { title: 'Profile', user: req.session.user, userType: req.session.user.isSeller  });
+    res.render('profile', { title: 'Profile', user: req.session.user, userType: req.session.user.is_seller  });
 
 });
 
@@ -155,6 +155,46 @@ router.post('/update-profile-info', async function(req, res, next) {
 
   
   res.redirect('/edit-profile');
+});
+
+router.get('/products', function(req, res, next) {
+  if (!req.session.user || !req.session.user.is_seller){
+    return res.redirect("/login")
+ }
+  res.render('products', { title: 'products', user: req.session.user  });
+});
+
+router.post('/products/add-item', async function(req, res, next) {
+  if (!req.session.user || !req.session.user.is_seller){
+    return res.redirect("/login")
+ }
+
+ await Product.create({ 
+  name: req.body.name,
+  gender: req.body.gender,
+  material: req.body.material,
+  frame: req.body.frame,
+  size: req.body.size,
+  type: req.body.type,
+  company: req.session.user.company,
+  price: parseFloat(req.body.price)
+})
+  res.redirect('/profile');
+});
+
+router.post('/products/remove-item', async function(req, res, next) {
+  if (!req.session.user || !req.session.user.is_seller){
+    return res.redirect("/login")
+ }
+
+ let product = await Product.findProduct(req.body.nameRemove)
+
+ if (req.session.user.company === product.company){
+    product.destroy()
+    return res.redirect("/profile?msg=itemRemoved")
+ }
+
+ return res.redirect("/profile?msg=invalid_itam")
 });
 
 module.exports = router;
