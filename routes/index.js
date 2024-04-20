@@ -77,8 +77,23 @@ router.get('/cart', async function(req, res, next) {
 });
 
 /* GET checkout page. */
-router.get('/checkout', function(req, res, next) {
-  res.render('checkout', { title: 'Checkout', user: req.session.user  });
+router.get('/checkout', async function(req, res, next) {
+  if (!req.session.user){
+    res.redirect("/login")
+  }
+
+  if (req.session.cart.length < 1) {
+    res.redirect("/")
+  }
+  await Product.findAll().then(glasses =>{
+    const prices = {}
+
+    glasses.forEach(glass =>{
+      prices[glass.name] = glass.price
+    })
+
+    res.render('checkout', { title: 'Checkout', user: req.session.user, cart: req.session.cart, price: prices  });
+  })
 });
 
 /* GET confirmation page. */
