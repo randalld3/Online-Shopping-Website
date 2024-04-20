@@ -126,15 +126,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let expeditedShipping = document.getElementById('expeditedShipping').checked;
     let deliveryPriceText = document.getElementById('deliveryPrice');
     let estimatedDeliveryDateText = document.getElementById('estimatedDeliveryDate');
+    let estimatedDeliveryDateInput = document.getElementById('estimatedDeliveryDateInput');
     let deliveryMethodText = document.getElementById('deliveryMethod');
 
     if (standardShipping) {
       deliveryPriceText.textContent = "Delivery Price: $5.00";
       estimatedDeliveryDateText.textContent = "Estimated Delivery Date: " + calculateEstimatedDelivery(5);
+      estimatedDeliveryDateInput.value = estimatedDeliveryDateText.textContent
       deliveryMethodText.textContent = "Delivery Method: Standard Delivery";
     } else if (expeditedShipping) {
       deliveryPriceText.textContent = "Delivery Price: $10.00";
       estimatedDeliveryDateText.textContent = "Estimated Delivery Date: " + calculateEstimatedDelivery(2);
+      estimatedDeliveryDateInput.value = estimatedDeliveryDateText.textContent
       deliveryMethodText.textContent = "Delivery Method: Express Delivery";
     }
   }
