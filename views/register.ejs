@@ -38,12 +38,12 @@
               <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-                    <form class="mx-1 mx-md-4" onsubmit="return validateRegistration()">
+                    <form method="post" action="" class="mx-1 mx-md-4" onsubmit="return validateRegistration()">
                       <!-- First Name Field -->
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                          <input type="text" id="firstName" class="form-control" required/>
+                          <input type="text" id="firstName" name="firstName" class="form-control" required/>
                           <label class="form-label" for="firstName">First Name</label>
                         </div>
                       </div>
@@ -51,7 +51,7 @@
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                          <input type="text" id="lastName" class="form-control" required/>
+                          <input type="text" id="lastName" name="lastName" class="form-control" required/>
                           <label class="form-label" for="lastName">Last Name</label>
                         </div>
                       </div>
@@ -59,7 +59,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <input type="text" id="company" class="form-control" />
+                        <input type="text" id="company" name="company" class="form-control" />
                         <label class="form-label" for="company">Company</label>
                       </div>
                     </div>
@@ -67,7 +67,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <input type="email" id="email" class="form-control" />
+                        <input type="email" id="email" name="email" class="form-control" />
                         <label class="form-label" for="email">Your Email</label>
                       </div>
                     </div>
@@ -75,7 +75,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <input type="password" id="password" class="form-control" />
+                        <input type="password" id="password" name="password" class="form-control" />
                         <label class="form-label" for="password">Password</label>
                       </div>
                     </div>
@@ -105,7 +105,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-question-circle fa-lg me-3 fa-fw"></i>
                       <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <select id="securityQuestion" class="form-control">
+                        <select id="securityQuestion" name="securityQuestion" class="form-control">
                           <option value="" disabled selected>Select your security question</option>
                           <option value="woodchuck">How much wood could a woodchuck chuck if a woodchuck could chuck wood?</option>
                         </select>
@@ -116,7 +116,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-pencil-alt fa-lg me-3 fa-fw"></i>
                       <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <input type="text" id="securityAnswer" class="form-control" />
+                        <input type="text" id="securityAnswer" name="securityAnswer" class="form-control" />
                         <label class="form-label" for="securityAnswer">Answer</label>
                       </div>
                     </div>

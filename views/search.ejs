@@ -34,6 +34,7 @@
 
       <!-- Filter Column -->
       <div class="filter-column">
+      <form method="post" action="/search/filter" >
         <!-- Gender Section -->
         <div class="filter-section">
           <div class="all-filters-title">Filters</div>
@@ -55,27 +56,27 @@
         <div class="filter-section">
           <h5 class="filter-title">Frame Type</h5>
           <div class="filter-option">
-            <input type="checkbox" id="rectangle" name="frameType" value="rectangle">
+            <input type="checkbox" id="rectangle" name="frame" value="rectangle">
             <label for="rectangle">Rectangle</label>
           </div>
           <div class="filter-option">
-            <input type="checkbox" id="oval" name="frameType" value="oval">
+            <input type="checkbox" id="oval" name="frame" value="oval">
             <label for="oval">Oval</label>
           </div>
           <div class="filter-option">
-            <input type="checkbox" id="round" name="frameType" value="round">
+            <input type="checkbox" id="round" name="frame" value="round">
             <label for="round">Round</label>
           </div>
           <div class="filter-option">
-            <input type="checkbox" id="square" name="frameType" value="square">
+            <input type="checkbox" id="square" name="frame" value="square">
             <label for="square">Square</label>
           </div>
           <div class="filter-option">
-            <input type="checkbox" id="browline" name="frameType" value="browline">
+            <input type="checkbox" id="browline" name="frame" value="browline">
             <label for="browline">Browline</label>
           </div>
           <div class="filter-option">
-            <input type="checkbox" id="cat-eye" name="frameType" value="cat-eye">
+            <input type="checkbox" id="cat-eye" name="frame" value="cat-eye">
             <label for="cat-eye">Cat-eye</label>
           </div>
         </div>        
@@ -103,35 +104,35 @@
         <div class="filter-section">
           <h5 class="filter-title">Material / Color</h5>
           <div class="filter-option">
-            <input type="checkbox" id="metal" name="materialColor" value="metal">
+            <input type="checkbox" id="metal" name="material" value="metal">
             <label for="metal">Metal</label>
           </div>
           <div class="filter-option">
-            <input type="checkbox" id="wood" name="materialColor" value="wood">
+            <input type="checkbox" id="wood" name="material" value="wood">
             <label for="wood">Wood</label>
           </div>
           <div class="filter-option">
-            <input type="checkbox" id="plastic" name="materialColor" value="plastic">
+            <input type="checkbox" id="plastic" name="material" value="plastic">
             <label for="plastic">Plastic</label>
           </div>
           <div class="filter-option">
-            <input type="checkbox" id="black" name="materialColor" value="black">
+            <input type="checkbox" id="black" name="material" value="black">
             <label for="black">Black</label>
           </div>
           <div class="filter-option">
-            <input type="checkbox" id="red" name="materialColor" value="red">
+            <input type="checkbox" id="red" name="material" value="red">
             <label for="red">Red</label>
           </div>
           <div class="filter-option">
-            <input type="checkbox" id="blue" name="materialColor" value="blue">
+            <input type="checkbox" id="blue" name="material" value="blue">
             <label for="blue">Blue</label>
           </div>
           <div class="filter-option">
-            <input type="checkbox" id="white" name="materialColor" value="white">
+            <input type="checkbox" id="white" name="material" value="white">
             <label for="white">White</label>
           </div>
           <div class="filter-option">
-            <input type="checkbox" id="other" name="materialColor" value="other">
+            <input type="checkbox" id="other" name="material" value="other">
             <label for="other">Other</label>
           </div>
         </div>
@@ -192,28 +193,17 @@
       <div class="results-column">
         <div class="results-title">Search Results</div>
         <!-- Individual Result Item -->
-        <div class="result-item">
-          <a href="/search"> <img src="/images/glasses1.jpg" alt="Item Description" class="result-image"> </a>
-          <p class="result-name">Glasses 1</p>
-          <p class="result-price">$30</p>
-        </div>
-        <div class="result-item">
-          <a href="/search"> <img src="/images/glasses2.jpg" alt="Item Description" class="result-image"> </a>
-          <p class="result-name">Glasses 2</p>
-          <p class="result-price">$120</p>
-        </div>
-        <div class="result-item">
-          <a href="/search"> <img src="/images/glasses3.jpg" alt="Item Description" class="result-image"> </a>
-          <p class="result-name">Glasses 3</p>
-          <p class="result-price">$190</p>
-        </div>
-        <div class="result-item">
-          <a href="/search"> <img src="/images/glasses4.jpg" alt="Item Description" class="result-image"> </a>
-          <p class="result-name">Glasses 4</p>
-          <p class="result-price">$190</p>
-        </div>
+        <% products.forEach(product => { %>
+          <div class="result-item">
+            <a href="/product/<%= product.name %>">
+            <img src="/images/<%= product.name %>.jpg" alt="<%= product.description %>" class="result-image">
+            </a>
+            <p class="result-name"><%= product.name %></p>
+            <p class="result-price">$<%= product.price %></p>
+          </div>
+        <% }); %>
+        </form>
       </div>
-    </div>
   </div>
 
   <!-- Footer Section -->

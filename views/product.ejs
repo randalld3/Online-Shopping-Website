@@ -67,7 +67,7 @@
       </div>
     </div>
     <div class="product-header">
-      <h1 class="product-name">Product Name</h1>
+      <h1 class="product-name"><%= product.name %></h1>
       <div class="star-rating">
         <!-- Example of 3 out of 5 stars rating -->
         <span class="star filled">&#9733;</span> <!-- filled star -->
@@ -76,11 +76,14 @@
         <span class="star">&#9733;</span> <!-- empty star -->
         <span class="star">&#9733;</span>
       </div>
-      <p class="product-price">$199.99</p>
+      <p class="product-price">$<%= product.price %></p>
       <div class="quantity-add">
+        <form action="/product/add" method="post">
         <label for="qty" class="quantity-label">Qty:</label>
+        <input type="hidden" name="name" value="<%= product.name %>">
         <input type="number" id="qty" name="qty" class="quantity-input" min="1" value="1">
-        <button type="button" class="add-to-cart-btn" data-toggle="modal" data-target="#add-to-cart-modal">Add to Cart</button>
+        <button type="submit" class="add-to-cart-btn" data-toggle="modal" data-target="#add-to-cart-modal">Add to Cart</button>
+        </form>
       </div>
     </div>
   </div>
@@ -156,21 +159,7 @@
   </div>
 
   <!-- Sidebar Modal -->
-  <div class="modal left fade" id="sidebar-modal" tabindex="-1" role="dialog" aria-labelledby="sidebar-label">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-        </div>
-        <div class="modal-body">
-          <a href="/profile" class="modal-link">Profile</a>
-          <a href="/login" class="modal-link">Log In</a>
-          <div class="modal-box" onclick="location.href='/search';">Frames</div>
-          <div class="modal-box" onclick="location.href='/search';">Lenses</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%- include('sidebar') %>
   
 <script src="/javascripts/product.js"></script>
 </body>

@@ -33,55 +33,47 @@
   <div class="cart-header">
     Your Cart:
   </div>
-  <div class="product-section">
-    <div class="product-image-container">
-        <img src="/images/glasses1.jpg" class="product-image">
-    </div>
-    <div class="product-details">
-      <div class="product-name">
-        Glasses 1
+  <% let total = 0 %>
+  <% let total_qty = 0 %>
+  <% Object.keys(cart).forEach(productName => { %>
+    <% const quantity = cart[productName] %>
+    <% const pricePerUnit = price[productName] %>
+
+    <div class="product-section">
+      <div class="product-image-container">
+          <img src="/images/<%= productName %>.jpg" class="product-image">
       </div>
-      <div class="product-price">
-        Price: $199.00
-      </div>
-      <div class="quantity-update">
-        <label for="qty" class="quantity-label">Qty:</label>
-        <input type="number" id="qty" name="qty" class="quantity-input" min="1" value="1">
-        <button type="button" class="update-cart-btn" data-toggle="button">Update</button>
-      </div>
-      <div class="product-subtotal">
-        Subtotal: $199.00
-      </div>
-    </div>
-  </div>
-  <div class="product-section">
-    <div class="product-image-container">
-        <img src="/images/glasses2.jpg" class="product-image">
-    </div>
-    <div class="product-details">
-      <div class="product-name">
-        Glasses 2
-      </div>
-      <div class="product-price">
-        Price: $99.00
-      </div>
-      <div class="quantity-update">
-        <label for="qty" class="quantity-label">Qty:</label>
-        <input type="number" id="qty" name="qty" class="quantity-input" min="1" value="1">
-        <button type="button" class="update-cart-btn" data-toggle="button">Update</button>
-      </div>
-      <div class="product-subtotal">
-        Subtotal: $99.00
+      <div class="product-details">
+        <div class="product-name">
+          <%= productName %>
+        </div>
+        <div class="product-price">
+          Price: $<%= pricePerUnit %>
+        </div>
+        <div class="quantity-update">
+          <form method="post" action="/update">
+            <label for="qty" class="quantity-label">Qty:</label>
+            <input type="hidden" name="name" value="<%= productName %>">
+            <input type="number" id="<%= productName %>-qty" name="qty" class="quantity-input" min="0" value="<%= quantity %>">
+            <button type="submit" class="update-cart-btn" data-toggle="button">Update</button>
+          </form>
+        </div>
+        <div class="product-subtotal">
+          Subtotal: $<%= (pricePerUnit * quantity).toFixed(2) %>
+          <% total = total + (pricePerUnit * quantity) %>
+          <% total_qty = total_qty +  quantity %>
+        </div>
       </div>
     </div>
-  </div>
+  <% }); %>
+  
   <div class="summary-header">
       Cart Summary
   </div>
   <div class="cart-summary">
     <div class="cart-totals">
-      <div>Subtotal: $298.00</div>
-      <div>Number of Items: 2</div>
+      <div>Subtotal: $<%= (total).toFixed(2) %></div>
+      <div>Number of Items: <%= total_qty %></div>
     </div>
     <div class="proceed-to-checkout-btn-container">
       <a href="/checkout" class="proceed-to-checkout-btn">
@@ -121,22 +113,8 @@
     </div>
   </footer>
 
-  <!-- Sidebar Modal -->
-  <div class="modal left fade" id="sidebar-modal" tabindex="-1" role="dialog" aria-labelledby="sidebar-label">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-        </div>
-        <div class="modal-body">
-          <a href="/profile" class="modal-link">Profile</a>
-          <a href="/login" class="modal-link">Log In</a>
-          <div class="modal-box" onclick="location.href='/search';">Frames</div>
-          <div class="modal-box" onclick="location.href='/search';">Lenses</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- Sidebar Modal -->
+<%- include('sidebar') %>
   
 <script src="/javascripts/product.js"></script>
 </body>
