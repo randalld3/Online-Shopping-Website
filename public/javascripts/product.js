@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (checkRequiredFields() && shippingIsSelected()) {
       showValidationSuccess();
       deliveryInformationSection.style.display = 'block';
+      updateSummmary();
       updateDeliveryInformation();
     } else {
       showValidationFailed();
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastName = document.getElementById('form7Example2').value.trim();
     let address = document.getElementById('form7Example4').value.trim();
     let email = document.getElementById('form7Example5').value.trim();
-    return firstName && lastName && address && email;
+    return firstName && lastName && address && address.split(",").length == 4 && email;
   }
 
   function shippingIsSelected() {
@@ -62,6 +63,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate() + daysToAdd);
     return currentDate.toLocaleDateString();
+  }
+
+  async function getTax(zipcode){
+    api_url = "https://webgis.dor.wa.gov/webapi/AddressRates.aspx?output=text&zip=".concat(zipcode)
+
+    console.log(api_url)
+    let response = await fetch(api_url)
+
+    const text = await response.text()
+    console.log(text)
+
+    values = text.split(" ")
+    console.log(values)
+    if (values.length > 1){
+      rate = values[1].split("=")[1]
+      
+      console.log(rate)
+      return rate
+    }
+
+    return "ERROR: Tax data not found for " + zipcode;
+    
+  }
+
+  async function updateSummmary(){
+    let standardShipping = document.getElementById('standardShipping').checked;
+
+    let subtotal = document.getElementById('subtotal');
+    let shippingSummary = document.getElementById('shippingSummary');
+    let taxes = document.getElementById('taxes');
+    let fullTotal = document.getElementById('fullTotal');
+
+    let address = document.getElementById('form7Example4').value.trim().split(",");
+
+    taxes.textContent = "Calculating..."
+    fullTotal.textContent = "Calculating..."
+
+    if (standardShipping){
+      shippingSummary.textContent = "$5.00"
+    }
+    else{
+      shippingSummary.textContent = "$10.00"
+    }
+    console.log(address)
+
+    let taxRate = await getTax(address[3])
+
+    if (taxRate.includes(".")){
+    taxes.textContent =  (parseFloat(subtotal.textContent) * taxRate).toFixed(2)
+    }
+    else{
+      taxes.textContent = taxRate
+    }
+
+    fullTotal.textContent = (parseFloat(subtotal.textContent) + parseFloat(taxes.textContent) + parseFloat(shippingSummary.textContent.replace("$", ""))).toFixed(2)
   }
 
   // Update the delivery information section
