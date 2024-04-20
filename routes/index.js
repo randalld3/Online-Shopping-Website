@@ -1,5 +1,6 @@
 var express = require('express');
 const Product  = require("../Models/Product");
+const User  = require("../models/User");
 var router = express.Router();
 
 /* GET home page. */
@@ -98,21 +99,62 @@ router.get('/checkout', async function(req, res, next) {
 
 /* GET confirmation page. */
 router.get('/confirmation', function(req, res, next) {
+  if(!req.session.user || !req.session.order){
+    res.redirect("/")
+  }
   res.render('confirmation', { title: 'Confirmation', user: req.session.user  });
 });
 
 /* GET profile page. */
 router.get('/profile', function(req, res, next) {
-  if (req.session.user){
-    res.render('profile', { title: 'Profile', user: req.session.user  });
-  }else{
+  if (!req.session.user){
     res.redirect("/login")
   }
+    res.render('profile', { title: 'Profile', user: req.session.user, userType: req.session.user.isSeller  });
+
 });
 
 /* GET edit-profile page. */
 router.get('/edit-profile', function(req, res, next) {
+  if (!req.session.user){
+    res.redirect("/login")
+  }
+
   res.render('edit-profile', { title: 'Edit-Profile', user: req.session.user  });
+});
+
+router.post('/update-profile-info', async function(req, res, next) {
+  if (!req.session.user){
+     return res.redirect("/login")
+  }
+
+  if (req.body.password !== req.session.user.password){
+    return res.redirect("/profile/?msg=passwordError")
+  }
+  console.log(req.body.firstName)
+  console.log(req.body.lastName)
+  console.log(req.body.company)
+  console.log(req.body.email)
+
+  await User.update(
+    {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      company: req.body.company,
+      email: req.body.email
+
+    },
+    {
+      where: {
+        email: req.session.user.email
+      }
+    }
+  );
+
+  req.session.user = await User.findUser(req.body.email)
+
+  
+  res.redirect('/edit-profile');
 });
 
 module.exports = router;
