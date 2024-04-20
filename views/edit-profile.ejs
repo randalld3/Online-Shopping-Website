@@ -50,35 +50,35 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">First name:</label>
             <div class="col-lg-8">
-              <input id="firstName" class="form-control" type="text" value="dey-dey">
+              <input id="firstName" class="form-control" type="text" value="<%= user.firstName %>">
             </div>
           </div>
           <!-- Last Name Field -->
           <div class="form-group">
             <label class="col-lg-3 control-label">Last name:</label>
             <div class="col-lg-8">
-              <input id="lastName" class="form-control" type="text" value="bootdey">
+              <input id="lastName" class="form-control" type="text" value="<%= user.lastName %>">
             </div>
           </div>
           <!-- Company Field -->
           <div class="form-group">
             <label class="col-lg-3 control-label">Company:</label>
             <div class="col-lg-8">
-              <input id="company" class="form-control" type="text" value="The Blind Squirrel">
+              <input id="company" class="form-control" type="text" value="<%= user.company ? user.company : 'None' %>">
             </div>
           </div>
           <!-- Email Field -->
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input id="email" class="form-control" type="text" value="janesemail@gmail.com">
+              <input id="email" class="form-control" type="text" value="<%= user.email %>">
             </div>
           </div>
           <!-- Password Field -->
           <div class="form-group">
             <label class="col-lg-3 control-label">Password:</label>
             <div class="col-lg-8">
-              <input id="password" class="form-control" type="password">
+              <input id="password" name="password" class="form-control" type="password">
             </div>
           </div>
           <!-- Repeat Password Field -->
@@ -101,6 +101,13 @@
               <input id="saveChanges" type="button" class="btn btn-primary" value="Save Changes">
               <span></span>
               <input id="cancelButton" type="reset" class="btn btn-default" value="Cancel">
+              <form id="dataForm" method="post" action="/update-profile-info">
+                <input type="hidden" name="firstName" id="hiddenFirstName">
+                <input type="hidden" name="lastName" id="hiddenLastName">
+                <input type="hidden" name="company" id="hiddenCompany">
+                <input type="hidden" name="email" id="hiddenEmail">
+                <input type="hidden" name="password" id="hiddenPassword">
+              </form>              
             </div>
           </div>
         </form>
@@ -176,7 +183,28 @@
           } else {
             errorMessage.style.display = 'none';
             console.log('Form is valid. Redirecting...');
-            window.location.href = '/profile';
+
+            var formData = {
+              firstName: firstNameInput.value,
+              lastName: lastNameInput.value,
+              company: companyInput.value,
+              email: emailInput.value,
+              password: passwordInput.value
+            };
+
+            fetch('/update-profile-info', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+            }).then(response => response.json())
+            .then(data => {
+              console.log('Profile updated successfully', data);
+            })
+
+
+
           }
         });
     
