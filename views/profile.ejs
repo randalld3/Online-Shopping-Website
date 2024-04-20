@@ -36,6 +36,7 @@
     <a href="/orders" class="profile-button" id="orders">
       <button>Orders</button>
     </a>
+    <input type="hidden" id="userType" value="<%= userType %>">
     <a href="/cart" class="profile-button" id="third-button">
       <button>Cart</button>
     </a>
@@ -76,15 +77,15 @@
 
   <!-- Script to load page based on user type -->
   <script>
-  // Please update the userType variable once the backend connection is established
-  var userType = 'seller';
+  
+  var userType = document.getElementById('userType').value;
 
   var thirdButton = document.getElementById('third-button');
   var thirdButtonText = thirdButton.getElementsByTagName('button')[0];
 
   thirdButton.classList.add('third-button');
 
-  if (userType === 'seller') {
+  if (userType) {
     thirdButton.href = '/products';
     thirdButtonText.textContent = 'Products';
   } else {
