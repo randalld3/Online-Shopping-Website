@@ -117,18 +117,24 @@
           <h5 class="mb-0">Summary</h5>
         </div>
         <div class="card-body">
+          <% let Subtotal = 0 %>
+          <% Object.keys(cart).forEach(productName => { %>
+            <% const quantity = cart[productName] %>
+            <% const pricePerUnit = price[productName] %>
+            <% Subtotal += (pricePerUnit * quantity).toFixed(2) %>
+          <% }); %>
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
               Subtotal
-              <span>$53.98</span>
+              <span id="subtotal"><%= Subtotal %></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
               Taxes
-              <span>An Arm and a Leg</span>
+              <span id="taxes">An Arm and a Leg</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center px-0">
               Shipping
-              <span>Gratis</span>
+              <span id="shippingSummary">Gratis</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
               <div>
@@ -137,7 +143,7 @@
                   <p class="mb-0">(including VAT)</p>
                 </strong>
               </div>
-              <span><strong>$53.98</strong></span>
+              <span id="fullTotal"><strong>$53.98</strong></span>
             </li>
           </ul>
   
