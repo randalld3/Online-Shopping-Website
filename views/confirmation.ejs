@@ -37,22 +37,19 @@
   <div class="summary-header">
     Order Summary
   </div>
+  
   <div class="order-summary">
     <div class="order-items">
-      <div class="order-item">
-        <img src="/images/glasses1.jpg" alt="Glasses1" class="product-image" />
-        <div class="product-details">
-          <h2 class="product-name">Product Name</h2>
-          <p class="estimated-delivery">Estimated Delivery: Date</p>
+      <% Object.keys(order).forEach(productName => { %>
+      <% const quantity = order[productName][0] %>
+        <div class="order-item">
+          <img src="/images/<%= productName %>.jpg" alt="<%= productName %>" class="product-image" />
+          <div class="product-details">
+            <h2 class="product-name"><%= productName %></h2>
+            <p class="estimated-delivery">Estimated Delivery: <%= date %></p>
+          </div>
         </div>
-      </div>
-      <div class="order-item">
-        <img src="/images/glasses2.jpg" alt="Glasses2" class="product-image" />
-        <div class="product-details">
-          <h2 class="product-name">Product Name</h2>
-          <p class="estimated-delivery">Estimated Delivery: Date</p>
-        </div>
-      </div>
+      <% }); %>
     </div>
   </div>
 
