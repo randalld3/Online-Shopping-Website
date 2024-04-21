@@ -63,20 +63,20 @@ router.post('/admin/add-user', async function(req, res, next) {
 });
 
 
-router.post('/admin/add-item', async function(req, res, next) {
+router.post('/admin/add-item', upload.single("image"), async function(req, res, next) {
   if (!req.session.user || !req.session.user.is_admin){
       return res.redirect("/")
   }
 
 
   await Product.create({
-    name: req.body.userFirstName,
-    gender: req.body.lastName,
-    material: req.body.email,
-    frame: req.body.company,
-    type: req.body.security_question,
-    size: req.body.security_answer,
-    company: req.body.password
+    name: req.body.name,
+    gender: req.body.gender,
+    material: req.body.material,
+    frame: req.body.frame,
+    type: req.body.type,
+    size: req.body.size,
+    company: req.body.company
   })
 
   res.redirect("/admin");
