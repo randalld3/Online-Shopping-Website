@@ -1,8 +1,6 @@
 var express = require('express');
-const Product  = require("../models/Product")
 var router = express.Router();
 const querystring = require('querystring');
-const { Op } = require("sequelize")
 
 router.post('/filter', async function(req, res, next) {
 
@@ -15,7 +13,7 @@ router.post('/filter', async function(req, res, next) {
       }
         
   });
-  
+
   minPrice = req.body.minPrice
   maxPrice = req.body.maxPrice
 

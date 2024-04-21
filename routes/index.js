@@ -141,7 +141,7 @@ router.get('/register', function(req, res, next) {
 /* GET search page. */
 router.get('/search', async function(req, res, next) {
   let criteria = {}
-  const params = ["gender", "frame", "material", "type", "size"]
+  const params = ["name", "gender", "frame", "material", "type", "size"]
   const price = req.query["price"]
 
   if (price) {
