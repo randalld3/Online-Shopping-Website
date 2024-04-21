@@ -3,7 +3,7 @@ const { Model, DataTypes } = require("sequelize")
 
 class Order extends Model {
 
-    static async findProduct(id){
+    static async findOrder(id){
         try{
             const order = await Order.findByPk(id)
 
