@@ -37,15 +37,19 @@
     </div>
     <div class="row">
       <!-- Placeholder for past orders -->
-      <% orders.forEach(function(order) { %>
-        <div class="col-12">
-          <div class="order-item">
-            <p><span class="order-key">Product Name:</span> <span class="order-value"><%= order.productName %></span></p>
-            <p><span class="order-key">Cost:</span> <span class="order-value">$<%= order.cost %></span></p>
-            <p><span class="order-key">Quantity:</span> <span class="order-value"><%= order.numOrdered %></span></p>
-            <p><span class="order-key">Order Date:</span> <span class="order-value"><%= order.orderDate %></span></p>
+      <% orders.forEach(order => { %>
+        <% let items = order.items%>
+        <% Object.keys(items).forEach(item =>{ %>
+          
+          <div class="col-12">
+            <div class="order-item">
+              <p><span class="order-key">Product Name:</span> <span class="order-value"><%= item %></span></p>
+              <p><span class="order-key">Cost:</span> <span class="order-value">$<%= (items[item][0] * items[item][1]).toFixed(2) %></span></p>
+              <p><span class="order-key">Quantity:</span> <span class="order-value"><%= items[item][0] %></span></p>
+              <p><span class="order-key">Order Date:</span> <span class="order-value"><%= order.date %></span></p>
+            </div>
           </div>
-        </div>
+        <% }); %>
       <% }); %>
       <!-- If no orders are available -->
       <% if (!orders.length) { %>
