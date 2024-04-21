@@ -24,7 +24,7 @@
 
 
           <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-            <form method="post" action="/products/add-item" style="width: 23rem;">
+            <form method="post" action="/products/add-item" style="width: 23rem;" enctype="multipart/form-data">
               <br>
               <br>
               <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Add Product</h3>
@@ -44,35 +44,35 @@
               <div class="filter-section">
                 <h5 class="filter-title">Material / Color</h5>
                 <div class="filter-option">
-                  <input type="checkbox" id="metal" name="material" value="metal">
+                  <input type="radio" id="metal" name="material" value="metal">
                   <label for="metal">Metal</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="wood" name="material" value="wood">
+                  <input type="radio" id="wood" name="material" value="wood">
                   <label for="wood">Wood</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="plastic" name="material" value="plastic">
+                  <input type="radio" id="plastic" name="material" value="plastic">
                   <label for="plastic">Plastic</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="black" name="material" value="black">
+                  <input type="radio" id="black" name="material" value="black">
                   <label for="black">Black</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="red" name="material" value="red">
+                  <input type="radio" id="red" name="material" value="red">
                   <label for="red">Red</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="blue" name="material" value="blue">
+                  <input type="radio" id="blue" name="material" value="blue">
                   <label for="blue">Blue</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="white" name="material" value="white">
+                  <input type="radio" id="white" name="material" value="white">
                   <label for="white">White</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="other" name="material" value="other">
+                  <input type="radio" id="other" name="material" value="other">
                   <label for="other">Other</label>
                 </div>
               </div>
@@ -81,27 +81,27 @@
               <div class="filter-section">
                 <h5 class="filter-title">Frame Type</h5>
                 <div class="filter-option">
-                  <input type="checkbox" id="rectangle" name="frame" value="rectangle">
+                  <input type="radio" id="rectangle" name="frame" value="rectangle">
                   <label for="rectangle">Rectangle</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="oval" name="frame" value="oval">
+                  <input type="radio" id="oval" name="frame" value="oval">
                   <label for="oval">Oval</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="round" name="frame" value="round">
+                  <input type="radio" id="round" name="frame" value="round">
                   <label for="round">Round</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="square" name="frame" value="square">
+                  <input type="radio" id="square" name="frame" value="square">
                   <label for="square">Square</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="browline" name="frame" value="browline">
+                  <input type="radio" id="browline" name="frame" value="browline">
                   <label for="browline">Browline</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="cat-eye" name="frame" value="cat-eye">
+                  <input type="radio" id="cat-eye" name="frame" value="cat-eye">
                   <label for="cat-eye">Cat-eye</label>
                 </div>
               </div>
@@ -110,15 +110,15 @@
               <div class="filter-section">
                 <h5 class="filter-title">Gender</h5>
                 <div class="filter-option">
-                  <input type="checkbox" id="male" name="gender" value="male">
+                  <input type="radio" id="male" name="gender" value="male">
                   <label for="male">Male</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="female" name="gender" value="female">
+                  <input type="radio" id="female" name="gender" value="female">
                   <label for="female">Female</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="children" name="gender" value="children">
+                  <input type="radio" id="children" name="gender" value="children">
                   <label for="children">Children</label>
                 </div>
               </div>
@@ -126,23 +126,23 @@
               <div class="filter-section">
                 <h5 class="filter-title">Type</h5>
                 <div class="filter-option">
-                  <input type="checkbox" id="reading" name="type" value="reading">
+                  <input type="radio" id="reading" name="type" value="reading">
                   <label for="reading">Reading</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="progressive" name="type" value="progressive">
+                  <input type="radio" id="progressive" name="type" value="progressive">
                   <label for="progressive">Progressive</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="bifocal" name="type" value="bifocal">
+                  <input type="radio" id="bifocal" name="type" value="bifocal">
                   <label for="bifocal">Bifocal</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="trifocal" name="type" value="trifocal">
+                  <input type="radio" id="trifocal" name="type" value="trifocal">
                   <label for="trifocal">Trifocal</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="non-prescription" name="type" value="non-prescription">
+                  <input type="radio" id="non-prescription" name="type" value="non-prescription">
                   <label for="non-prescription">Non-Prescription</label>
                 </div>
               </div>
@@ -151,26 +151,28 @@
               <div class="filter-section">
                 <h5 class="filter-title">Size</h5>
                 <div class="filter-option">
-                  <input type="checkbox" id="size-xs" name="size" value="XS">
+                  <input type="radio" id="size-xs" name="size" value="XS">
                   <label for="size-xs">XS</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="size-s" name="size" value="S">
+                  <input type="radio" id="size-s" name="size" value="S">
                   <label for="size-s">S</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="size-m" name="size" value="M">
+                  <input type="radio" id="size-m" name="size" value="M">
                   <label for="size-m">M</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="size-l" name="size" value="L">
+                  <input type="radio" id="size-l" name="size" value="L">
                   <label for="size-l">L</label>
                 </div>
                 <div class="filter-option">
-                  <input type="checkbox" id="size-xl" name="size" value="XL">
+                  <input type="radio" id="size-xl" name="size" value="XL">
                   <label for="size-xl">XL</label>
                 </div>
               </div>
+
+              <input type="file" name="image" class="form-control" accept=".jpg,.png">
 
 
               <div class="pt-1 mb-4">
