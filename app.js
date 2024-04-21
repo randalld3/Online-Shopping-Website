@@ -16,6 +16,7 @@ var profileRouter = require('./routes/profile');
 var searchRouter = require('./routes/search');
 var productRouter = require('./routes/product');
 var cartRouter = require('./routes/cart');
+var checkoutRouter = require('./routes/checkout');
 
 
 var app = express();
@@ -47,6 +48,7 @@ app.use("/profile", profileRouter)
 app.use("/search", searchRouter)
 app.use("/product", productRouter)
 app.use("/cart", cartRouter)
+app.use("/checkout", checkoutRouter)
 
 
 // catch 404 and forward to error handler
@@ -74,7 +76,7 @@ async function setup(){
     company: "Whole Foods",
     security_question: "woodchuck",
     security_answer: "1234",
-    email: "Johnsoac671@gmail.com",
+    email: "test@gmail.com",
     is_seller: false,
     is_admin: true
 
