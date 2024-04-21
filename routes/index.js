@@ -1,7 +1,8 @@
 var express = require('express');
 const Product  = require("../models/Product");
 const User  = require("../models/User");
-const Order = require("../models/Order")
+const Order = require("../models/Order");
+const upload = require("../upload")
 var router = express.Router();
 
 // DELETEME GET Past Orders page for front-end testing
@@ -260,6 +261,7 @@ router.post('/update-profile-info', async function(req, res, next) {
     }
   );
 
+
   req.session.user = await User.findUser(req.body.email)
 
   
@@ -273,7 +275,7 @@ router.get('/products', function(req, res, next) {
   res.render('products', { title: 'products', user: req.session.user  });
 });
 
-router.post('/products/add-item', async function(req, res, next) {
+router.post('/products/add-item', upload.single("image"),  async function(req, res, next) {
   if (!req.session.user || !req.session.user.is_seller){
     return res.redirect("/login")
  }
@@ -288,6 +290,7 @@ router.post('/products/add-item', async function(req, res, next) {
   company: req.session.user.company,
   price: parseFloat(req.body.price)
 })
+
   res.redirect('/profile');
 });
 
