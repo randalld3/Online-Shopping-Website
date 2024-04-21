@@ -82,6 +82,19 @@ async function setup(){
 
 })
 
+  await User.create({ 
+    firstName: "Jeff",
+    lastName: "Bezos",
+    password: "1234",
+    company: "Amazon",
+    security_question: "woodchuck",
+    security_answer: "1234",
+    email: "jeff@gmail.com",
+    is_seller: true,
+    is_admin: false
+
+  })
+
   await Product.create({ 
     name: "glasses1",
     gender: "male",
