@@ -6,9 +6,9 @@ var router = express.Router();
 router.post('/', async function(req, res, next) {
     const user = await User.findUser(req.body.email)
 
-    console.log(user)
+    console.log(req.body.password)
 
-    if (user!== null){
+    if (user!== null && req.body.password === user.password){
         req.session.user = user
         req.session.cart = {}
         res.redirect("/")
