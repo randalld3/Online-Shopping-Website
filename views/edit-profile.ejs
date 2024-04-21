@@ -37,8 +37,9 @@
         <div class="text-center">
           <img src="/images/avatar.png" class="avatar img-circle img-thumbnail" style="width: 200px; height: 200px;" alt="avatar">
           <h6>Upload a different photo...</h6>
-          
+          <!-- Display Account Type -->
           <input type="file" class="form-control">
+          <h3><%= user.is_seller ? "Account type: Seller" : "Account type: Shopper" %></h3>
         </div>
       </div>
       

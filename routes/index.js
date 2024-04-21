@@ -1,7 +1,22 @@
 var express = require('express');
-const Product  = require("../Models/Product");
+const Product  = require("../models/Product");
 const User  = require("../models/User");
 var router = express.Router();
+
+// DELETEME GET Past Orders page for front-end testing
+router.get('/orders', function(req, res, next) {
+  if (!req.session.user) {
+    res.redirect('/login');
+  } else {
+    // Assuming 'orders' will eventually be fetched from the database
+    const sampleOrders = [
+      { productName: "Glasses 1", cost: "199.00", numOrdered: 2, orderDate: "4/20/2024" },
+      { productName: "Glasses 2", cost: "99.00", numOrdered: 1, orderDate: "4/18/2024" }
+    ];
+    res.render('orders', { title: 'Past Orders', user: req.session.user, orders: sampleOrders });
+  }
+});
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

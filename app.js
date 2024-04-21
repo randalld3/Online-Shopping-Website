@@ -6,7 +6,7 @@ var logger = require('morgan');
 const session = require("express-session")
 const sequelize = require("./db")
 const User = require("./models/User")
-const Product = require("./Models/Product")
+const Product = require("./models/Product")
 
 var indexRouter = require('./routes/index');
 var registerRouter = require('./routes/register');

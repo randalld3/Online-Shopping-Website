@@ -1,5 +1,5 @@
 var express = require('express');
-const Product  = require("../Models/Product")
+const Product  = require("../models/Product")
 var router = express.Router();
 const querystring = require('querystring');
 

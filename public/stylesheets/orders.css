@@ -1,0 +1,24 @@
+.orders-container {
+    background-color: #fffbea;
+}
+.orders-header {
+    font-size: 64px;
+    color: #333;
+    text-align: center;
+    font-family: sans-serif;
+    margin-bottom: 40px;
+}
+.order-item {
+    margin-bottom: 30px;
+}
+.order-key {
+    font-weight: bold;
+    font-size: 24px;
+    font-family: sans-serif;
+  }
+.order-value {
+    font-weight: normal;
+    font-size: 28px;
+    font-family: sans-serif;
+}
+  
