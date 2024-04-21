@@ -3,6 +3,7 @@ const Product  = require("../models/Product");
 const User  = require("../models/User");
 const Order = require("../models/Order");
 const upload = require("../upload")
+const { Op } = require("sequelize")
 var router = express.Router();
 
 // DELETEME GET Past Orders page for front-end testing
@@ -141,6 +142,18 @@ router.get('/register', function(req, res, next) {
 router.get('/search', async function(req, res, next) {
   let criteria = {}
   const params = ["gender", "frame", "material", "type", "size"]
+  const price = req.query["price"]
+
+  if (price) {
+    if (price === '<50') {
+      criteria['price'] = { [Op.lt]: 50 }
+    } else if (price === '>150') {
+      criteria['price'] = { [Op.gt]: 150 }
+    } else if (price.includes('-')) {
+      const [min, max] = price.split('-').map(Number)
+      criteria['price'] = { [Op.between]: [min, max] }
+    }
+  }
 
   params.forEach(param => {
       if (req.query[param]){
@@ -148,6 +161,7 @@ router.get('/search', async function(req, res, next) {
       }
         
   });
+  
 
   const results = await Product.findAll({
       where: criteria,
