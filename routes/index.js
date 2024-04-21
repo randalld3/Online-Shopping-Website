@@ -13,9 +13,106 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Login', user: req.session.user  });
 });
 
+
+
+
+/* GET login page. */
+router.get('/admin', function(req, res, next) {
+  if (!req.session.user || !req.session.user.is_admin){
+    return res.redirect("/")
+  }
+
+  res.render('admin', { title: 'admin', user: req.session.user  });
+});
+
+
+router.post('/admin/add-user', async function(req, res, next) {
+  if (!req.session.user || !req.session.user.is_admin){
+    return res.redirect("/")
+  }
+
+  await User.create({
+    firstName: req.body.userFirstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    company: req.body.company,
+    security_question: req.body.security_question,
+    security_answer: req.body.security_answer,
+    password: req.body.password
+  })
+
+  res.redirect("/admin");
+});
+
+
+router.post('/admin/add-item', async function(req, res, next) {
+  if (!req.session.user || !req.session.user.is_admin){
+      return res.redirect("/")
+  }
+
+
+  await Product.create({
+    name: req.body.userFirstName,
+    gender: req.body.lastName,
+    material: req.body.email,
+    frame: req.body.company,
+    type: req.body.security_question,
+    size: req.body.security_answer,
+    company: req.body.password
+  })
+
+  res.redirect("/admin");
+});
+
+
+router.post('/admin/remove-item', async function(req, res, next) {
+  if (!req.session.user || !req.session.user.is_admin){
+    return res.redirect("/")
+  }
+  let item = await Product.findProduct(req.body.itemRemove)
+  item.destroy()
+
+  res.redirect("/admin");
+});
+
+
+router.post('/admin/remove-user', async function(req, res, next) {
+  if (!req.session.user || !req.session.user.is_admin){
+    return res.redirect("/")
+  }
+  let user = await User.findUser(req.body.userRemove)
+  user.destroy()
+
+  res.redirect("/admin");
+});
+
+
+
+
 /* GET forgot-password page. */
 router.get('/forgot-password', function(req, res, next) {
   res.render('forgot-password', { title: 'Forgot-Password', user: req.session.user  });
+});
+
+router.post('/password-change', async function(req, res, next) {
+  let user = await User.findUser(req.body.email)
+
+  if (req.body.recovery_answer === user.securityAnswer){
+    await User.update(
+      {
+        password: req.body.password
+      },
+      {
+        where: {
+          email: user.email
+        }
+      }
+    );
+
+  }
+
+
+  res.redirect("/login")
 });
 
 /* GET register page. */
@@ -131,10 +228,6 @@ router.post('/update-profile-info', async function(req, res, next) {
   if (req.body.password !== req.session.user.password){
     return res.redirect("/profile/?msg=passwordError")
   }
-  console.log(req.body.firstName)
-  console.log(req.body.lastName)
-  console.log(req.body.company)
-  console.log(req.body.email)
 
   await User.update(
     {

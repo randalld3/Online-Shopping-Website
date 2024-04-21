@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Glasses Shopping Portal Home</title>
+  <link rel='stylesheet' href='/stylesheets/common.css' />
+  <link rel='stylesheet' href='/stylesheets/search.css' />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <img src="/images/filter.png" class="header_icon" data-toggle="modal" data-target="#sidebar-modal">
+    <a href="/">
+      <img src="/images/logo_temp.png" class="header_icon logo">
+    </a>
+    <form class="search-form" action="/search" method="GET">
+      <input type="text" class="search_bar" name="q" placeholder="Search" required>
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+    <a href="/profile">
+      <img src="/images/profile.jpg" class="header_icon">
+    </a>
+    <a href="/cart">
+      <img src="/images/cart.jpg" class="header_icon">
+    </a>
+  </header>
+  
+  <!-- Main Section -->
+  <section class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 text-black">
+            <form method="post" action="/admin/remove-user" style="width: 23rem;">
+                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Remove User</h3>
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input type="text" id="userRemove" name="userRemove" class="form-control form-control-lg" />
+                  <label class="form-label" for="userRemove">User Email</label>
+                </div>
+  
+                <div class="pt-1 mb-4">
+                  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-lg btn-block" >Remove User</button>
+                </div>
+              </form>
+            
+        </div>
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+            <form method="post" action="/admin/remove-item" style="width: 23rem;">
+              <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Remove Item</h3>
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input type="text" id="itemRemove" name="itemRemove" class="form-control form-control-lg" />
+                <label class="form-label" for="itemRemove">Item Name</label>
+              </div>
+
+              <div class="pt-1 mb-4">
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-lg btn-block" >Remove Item</button>
+              </div>
+            </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 text-black">
+            <form method="post" action="/admin/add-user" style="width: 23rem;">
+                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Add User</h3>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="userNameFirst" name="userNameFirst" class="form-control form-control-lg" />
+                    <label class="form-label" for="userNameFirst">User First Name</label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="userNameLast" name="userNameLast" class="form-control form-control-lg" />
+                    <label class="form-label" for="userNameLast">User Last Name</label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="userCompany" name="userCompany" class="form-control form-control-lg" />
+                    <label class="form-label" for="userCompany">User Company</label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="userSecurityQuestion" name="userSecurityQuestion" class="form-control form-control-lg" />
+                    <label class="form-label" for="userSecurityQuestion">User Security Question</label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="userSecurityAnswer" name="userSecurityAnswer" class="form-control form-control-lg" />
+                    <label class="form-label" for="userSecurityAnswer">User Security Answer</label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input type="text" id="userEmail" name="userEmail" class="form-control form-control-lg" />
+                  <label class="form-label" for="userEmail">User Email</label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="userPassword" name="userPassword" class="form-control form-control-lg" />
+                    <label class="form-label" for="userPassword">User Password</label>
+                  </div>
+  
+                <div class="pt-1 mb-4">
+                  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-lg btn-block" >Add User</button>
+                </div>
+              </form>
+            
+        </div>
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+            <form method="post" action="/admin/add-item" style="width: 23rem;">
+                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Add Item</h3>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="itemName" name="itemName" class="form-control form-control-lg" />
+                    <label class="form-label" for="itemName">Item Name</label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="itemGender" name="itemGender" class="form-control form-control-lg" />
+                    <label class="form-label" for="itemGender">Item Gender</label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="itemMaterial" name="itemMaterial" class="form-control form-control-lg" />
+                    <label class="form-label" for="itemMaterial">Item Material</label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="itemFrame" name="itemFrame" class="form-control form-control-lg" />
+                    <label class="form-label" for="itemFrame">Item Frame</label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="itemType" name="itemType" class="form-control form-control-lg" />
+                    <label class="form-label" for="itemType">Item Type</label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input type="text" id="itemSize" name="itemSize" class="form-control form-control-lg" />
+                  <label class="form-label" for="itemSize">Item Size</label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="itemCompany" name="itemCompany" class="form-control form-control-lg" />
+                    <label class="form-label" for="itemCompany">Item Company</label>
+                  </div>
+  
+                <div class="pt-1 mb-4">
+                  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-lg btn-block" >Add item</button>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="/returns" class="footer-link">Returns</a>
+          <a href="/faq" class="footer-link">FAQ</a>
+        </div>
+        <div class="col-md-6">
+          <a href="/shipping" class="footer-link">Shipping</a>
+          <a href="/contact" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+      <div class="row justify-content-center social-media-row">
+        <div class="col-auto">
+          <a href="https://facebook.com" class="footer-icon"><img src="/images/facebook-icon.png" alt="Facebook"></a>
+        </div>
+        <div class="col-auto">
+          <a href="https://twitter.com" class="footer-icon"><img src="/images/twitter-icon.png" alt="Twitter"></a>
+        </div>
+        <div class="col-auto">
+          <a href="https://instagram.com" class="footer-icon"><img src="/images/instagram-icon.png" alt="Instagram"></a>
+        </div>
+        <div class="col-auto">
+          <a href="https://tiktok.com" class="footer-icon"><img src="/images/tiktok-icon.png" alt="TikTok"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Sidebar Modal -->
+    <%- include('sidebar') %>
+
+</body>
+</html>
