@@ -115,10 +115,10 @@ router.get('/forgot-password', function(req, res, next) {
 router.post('/password-change', async function(req, res, next) {
   let user = await User.findUser(req.body.email)
 
-  if (req.body.recovery_answer === user.securityAnswer){
+  if (req.body.recovery_answer === user.security_answer){
     await User.update(
       {
-        password: req.body.password
+        password: req.body["new-password"]
       },
       {
         where: {
@@ -126,6 +126,7 @@ router.post('/password-change', async function(req, res, next) {
         }
       }
     );
+    
 
   }
 
