@@ -45,8 +45,8 @@
         </div>
         <div class="product-subtotal">
           Subtotal: $<%= (pricePerUnit * quantity).toFixed(2) %>
-          <% total = total + (pricePerUnit * quantity) %>
-          <% total_qty = total_qty +  quantity %>
+          <% total = parseInt(total) + (pricePerUnit * quantity) %>
+          <% total_qty = parseInt(total_qty) +  parseInt(quantity) %>
         </div>
       </div>
     </div>

@@ -3,6 +3,10 @@ var router = express.Router();
 const User = require("../models/User");
 const sequelize = require('../db');
 
+/* GET register page. */
+router.get('/', function(req, res, next) {
+  res.render('register', { title: 'Register', user: req.session.user  });
+});
 
 router.post("/", async function (req, res, next) {
   

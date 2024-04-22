@@ -6,7 +6,7 @@ var router = express.Router();
 
 
 router.post('/order', async function(req, res, next) {
-    if(req.session.cart.length < 1){
+    if(Object.keys(req.session.cart).length < 1){
         res.redirect("/")
     }
     const prices = {}

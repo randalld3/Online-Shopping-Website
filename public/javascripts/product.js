@@ -111,13 +111,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let taxRate = await getTax(address[3])
 
     if (taxRate.includes(".")){
-    taxes.textContent =  (parseFloat(subtotal.textContent) * taxRate).toFixed(2)
+    taxes.textContent =  "$"+(parseFloat(subtotal.textContent) * taxRate).toFixed(2)
     }
     else{
       taxes.textContent = taxRate
     }
 
-    fullTotal.textContent = (parseFloat(subtotal.textContent) + parseFloat(taxes.textContent) + parseFloat(shippingSummary.textContent.replace("$", ""))).toFixed(2)
+    fullTotal.textContent = "$" + (parseFloat(subtotal.textContent) + parseFloat(taxes.textContent) + parseFloat(shippingSummary.textContent.replace("$", ""))).toFixed(2)
   }
 
   // Update the delivery information section

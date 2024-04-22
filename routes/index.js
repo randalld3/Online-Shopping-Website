@@ -134,10 +134,7 @@ router.post('/password-change', async function(req, res, next) {
   res.redirect("/login")
 });
 
-/* GET register page. */
-router.get('/register', function(req, res, next) {
-  res.render('register', { title: 'Register', user: req.session.user  });
-});
+
 
 /* GET search page. */
 router.get('/search', async function(req, res, next) {
