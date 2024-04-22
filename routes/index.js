@@ -31,7 +31,25 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Login', user: req.session.user  });
 });
 
+/* GET shipping page */
+router.get('/shipping', function(req, res, next) {
+  res.render('shipping', { title: 'Shipping Information', user: req.session.user  });
+});
 
+/* GET faq page */
+router.get('/faq', function(req, res, next) {
+  res.render('faq', { title: 'Frequently Asked Questions', user: req.session.user  });
+});
+
+/* GET contact page */
+router.get('/contact', function(req, res, next) {
+  res.render('contact', { title: 'Contact Us', user: req.session.user  });
+});
+
+/* GET returns page */
+router.get('/returns', function(req, res, next) {
+  res.render('returns', { title: 'Return Policies', user: req.session.user  });
+});
 
 
 /* GET login page. */

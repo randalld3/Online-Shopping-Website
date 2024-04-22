@@ -377,3 +377,24 @@ body {
     font-size: 60px !important;
 }
 
+/* Styles used in footer text pages */
+.text-main-content {
+    padding: 0 10%;
+    background-color: #fffbea;
+    width: 100%;
+    box-sizing: border-box;
+}
+.text-title {
+    text-align: center;
+    font-size: 64px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.text-text {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+  
